@@ -9,7 +9,11 @@ const MEETUP_URL = 'https://www.meetup.com/charmcityjs/events';
       events: {
         listItem: '.eventList-list > li',
         data: {
-          title: '.eventCardHead--title'
+          title: '.eventCardHead--title',
+          path: {
+            selector: 'a.eventCard--link',
+            attr: 'href'
+          }
         }
       }
     })
