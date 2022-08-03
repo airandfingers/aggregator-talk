@@ -6,6 +6,14 @@ import meetups from '../data/meetups.json'
 
 const MEETUP_DOMAIN = 'https://meetup.com'
 
+const AFFILIATE_LINK_PREFIX = 'https://go.skimresources.com/?id=58099X1353817&xs=1&url='
+const ExternalLink = ({ href, ...props }) => {
+  if (href.startsWith(MEETUP_DOMAIN)) {
+    href = AFFILIATE_LINK_PREFIX + encodeURIComponent(href)
+  }
+  return <a href={href} {...props} />
+}
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -20,9 +28,9 @@ export default function Home() {
         <ul>
           {meetups.events.map((meetup, i) => (
             <li key={i}>
-              <a href={MEETUP_DOMAIN + meetup.path}>
+              <ExternalLink href={MEETUP_DOMAIN + meetup.path}>
                 {meetup.title}
-              </a>
+              </ExternalLink>
             </li>
           ))}
         </ul>
