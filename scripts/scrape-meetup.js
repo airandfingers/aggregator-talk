@@ -6,6 +6,7 @@ const MEETUP_URL = 'https://www.meetup.com/charmcityjs/events';
 (async () => {
   try {
     const { data } = await scrapeIt(MEETUP_URL, {
+      name: 'h1.groupHomeHeader-groupName',
       events: {
         listItem: '.eventList-list > li',
         data: {
