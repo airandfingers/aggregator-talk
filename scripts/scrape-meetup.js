@@ -1,16 +1,25 @@
+const fs = require('fs').promises
 const scrapeIt = require('scrape-it');
 
 const MEETUP_URL = 'https://www.meetup.com/charmcityjs/events';
-console.log('Scraping', MEETUP_URL);
-scrapeIt(MEETUP_URL, {
-  events: {
-    listItem: '.eventList-list > li',
-    data: {
-      title: '.eventCardHead--title'
-    }
+
+(async () => {
+  try {
+    const { data } = await scrapeIt(MEETUP_URL, {
+      events: {
+        listItem: '.eventList-list > li',
+        data: {
+          title: '.eventCardHead--title'
+        }
+      }
+    })
+
+    console.log('Writing to meetups.json:', data)
+    await fs.writeFile('./data/meetups.json', JSON.stringify(data))
+
+    process.exit(0)
+  } catch(e) {
+    console.error(e)
+    process.exit(1)
   }
-})
-.then(({ data }) => {
-  console.log(data);
-  process.exit(0);
-})
+})()
