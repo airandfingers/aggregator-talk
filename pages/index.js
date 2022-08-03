@@ -3,7 +3,6 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import meetups from '../data/meetups.json'
-const { events } = meetups
 
 const MEETUP_DOMAIN = 'https://meetup.com'
 
@@ -17,10 +16,11 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <h1>Upcoming {meetups.name} Meetups</h1>
         <ul>
-          {events.map((meetup, i) => (
+          {meetups.events.map((meetup, i) => (
             <li key={i}>
-              <a href={MEETUP_DOMAIN + meetup.url}>
+              <a href={MEETUP_DOMAIN + meetup.path}>
                 {meetup.title}
               </a>
             </li>

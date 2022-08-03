@@ -23,4 +23,8 @@ a {
     color: white;
     background: black;
   }
+  li {
+    margin-bottom: 1em;
+    list-style: none;
+  }
 }
