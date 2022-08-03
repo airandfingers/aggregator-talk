@@ -1,0 +1,15 @@
+Scraping https://www.meetup.com/charmcityjs/events
+{
+  events: [
+    { title: 'Monthly Meetup' },
+    { title: 'Monthly Meetup' },
+    { title: 'Monthly Meetup' },
+    { title: 'Monthly Meetup' },
+    { title: 'Monthly Meetup' },
+    { title: 'Monthly Meetup' },
+    { title: 'Monthly Meetup' },
+    { title: 'Monthly Meetup' },
+    { title: 'Monthly Meetup' },
+    { title: 'Monthly Meetup' }
+  ]
+}
